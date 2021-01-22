@@ -1,0 +1,10 @@
+{% extends '_base.html' %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <p>Jestes pewny ze chcesz usunac ten kontakt?</p>
+        {{ form.as_p }}
+    <input type="submit" value="Delete">
+
+</form>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends '_base.html' %}
+{% block content %}
+
+        <button><a href='/person/{{ person.id }}/add-phone/'>Dodaj telefon</a></button>
+<h1>First name: {{ person.first_name }}</h1>
+<h1>Last name: {{ person.last_name }}</h1>
+    <p>Desc: {{ person.description }}</p>
+
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" value="Add">Add</button>
+    </form>
+{% endblock %}

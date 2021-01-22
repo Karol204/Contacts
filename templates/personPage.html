@@ -1,0 +1,28 @@
+{% extends '_base.html' %}
+{% block content %}
+
+        <button><a href='/person/{{ person.id }}/add-phone/'>Dodaj telefon</a></button>
+    <button><a href='/person/{{ person.id }}/add-email/'>Dodaj adres e-mail</a></button>
+<h1>First name: {{ person.first_name }}</h1>
+<h1>Last name: {{ person.last_name }}</h1>
+    <p>Desc: {{ person.description }}</p>
+
+
+      <span>Phone numbers:</span>
+    <ul>
+
+        {% for phone in phones %}
+        <li>{{ phone.number }} - {{ phone.type }}</li>
+        {% endfor %}
+ </ul>
+
+          <span>Email adresses:</span>
+    <ul>
+
+        {% for email in emails %}
+        <li>{{ email.email_adress }} - {{ email.type }}</li>
+        {% endfor %}
+ </ul>
+
+   <button> <a href="/delete/{{ person.id }}">Usun</a></button>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends '_base.html' %}
+{% block content %}
+    <button><a href="/new-person/">Dodaj kontakt</a></button>
+    <button><a href="/add-adress/">Dodaj adres</a></button>
+    <button><a href="/add-group/">Dodaj grupe</a></button>
+
+<ul>
+{% for person in all_persons %}
+<li><a href="/person/{{ person.id }}/"> {{ person.first_name }} {{ person.last_name }}</a></li> <button>
+    <a href="/delete/{{ person.id }}">Usun</a></button>
+    <button>
+    <a href="/edit/{{ person.id }}">Edit</a></button>
+{% endfor %}
+</ul>
+
+    <h2>Groups</h2>
+    <ul>
+        {% for group in groups %}
+            <li><a href="/group/{{ group.id }}">{{ group.name }}</a></li>
+        {% endfor %}
+    </ul>
+
+
+{% endblock %}
