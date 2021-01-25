@@ -49,3 +49,6 @@ class Email(models.Model):
 class Group(models.Model):
     name = models.CharField(max_length=40)
     person = models.ManyToManyField(Person)
+
+    def __str__(self):
+        return f'{self.name} {self.person}'

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from Mail.views import LandingPage, PersonView, newPersonView, addAdressView, addPhoneView, addEmailView, \
-    deletePersonView, editView, addGroupView, singleGroupView, addPersonToGroupView
+    deletePersonView, editView, addGroupView, singleGroupView, addPersonToGroupView, deletePersonFromGroupView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -16,6 +16,7 @@ urlpatterns = [
     path('add-group/', addGroupView.as_view()),
     path('group/<int:id>/', singleGroupView.as_view()),
     path('group/<int:id>/add-person/', addPersonToGroupView.as_view()),
+    path('delete/<int:id>/<int:id_person>/', deletePersonFromGroupView.as_view())
 
 
 

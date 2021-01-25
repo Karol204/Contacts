@@ -3,7 +3,8 @@
 <h1>Group: {{ group.name }}</h1>
 <ul>
 {% for person in persons %}
-<li><a href="/person/{{ person.id }}/"> {{ person.first_name }} {{ person.last_name }}</a></li>
+<li><a href="/person/{{ person.id }}/"> {{ person.first_name }} {{ person.last_name }}</a>
+    <button> <a href='/delete/{{ group.id }}/{{ person.id }}/'>Usun z grupy</a></button></li>
 {% endfor %}
 </ul>
     <button><a href="/group/{{ group.id }}/add-person/">Add Persons to group</a> </button>

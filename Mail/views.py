@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from Mail.models import Person, Adress, Phone, Email, Group
 from Mail.forms import PersonForm, AdressForm, PhoneForm, EmailForm, DeleteConfirmation, EditForm, AddGroup, addPersonToGroupForm
@@ -206,4 +206,19 @@ class addPersonToGroupView(View):
     def post(self, request, id):
         form = addPersonToGroupForm(request.POST)
         group = Group.objects.get(pk=id)
+        if form.is_valid():
+            name = group.name
+            persons = form.cleaned_data['persons']
+            print(persons)
+            for i in range(len(persons)):
+                group.person.add(persons[i])
+                i+=1
+        return redirect('/')
 
+class deletePersonFromGroupView(View):
+
+    def get(self, request, id, id_person):
+        group = Group.person.through.objects.filter(person=id_person)
+        print(group)
+        group.delete()
+        return redirect('/')
