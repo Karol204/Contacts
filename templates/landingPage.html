@@ -1,17 +1,24 @@
 {% extends '_base.html' %}
 {% block content %}
-    <button><a href="/new-person/">Dodaj kontakt</a></button>
-    <button><a href="/add-adress/">Dodaj adres</a></button>
-    <button><a href="/add-group/">Dodaj grupe</a></button>
+    <ul class="links">
+            <li><a class="btn1" href="/new-person/">Dodaj kontakt</a></li>
+            <li><a class="btn1" href="/add-adress/">Dodaj adres</a></li>
+            <li><a class="btn1" href="/add-group/">Dodaj grupe</a></li>
+        </ul>
 
-<ul>
+
+
+<section class="order">
 {% for person in all_persons %}
-<li><a href="/person/{{ person.id }}/"> {{ person.first_name }} {{ person.last_name }}</a></li> <button>
-    <a href="/delete/{{ person.id }}">Usun</a></button>
-    <button>
-    <a href="/edit/{{ person.id }}">Edit</a></button>
+ <div class='cart'>
+            <a class="person" href="/person/{{ person.id }}/"> Jedna osoba</a>
+
+            <a class='personDelete' href="/delete/{{ person.id }}">Usun</a>
+
+            <a class='personEdit' href="/edit/{{ person.id }}">Edit</a>
+        </div>
 {% endfor %}
-</ul>
+</section>
 
     <h2>Groups</h2>
     <ul>
